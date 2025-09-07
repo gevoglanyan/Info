@@ -18,10 +18,13 @@ const Newsletter = () => {
     >
       <h2 className="text-3xl font-heading mb-4">Stay Updated</h2>
       <p className="mb-6 font-body">Sign up to get notified when Two Touch launches.</p>
+
+      <br /> 
+      
       <form onSubmit={handleSubmit} className="flex flex-col md:flex-row justify-center gap-4 max-w-md mx-auto">
         <input
           type="email"
-          placeholder="Enter Email"
+          placeholder="Enter Your Email"
           className="px-4 py-3 rounded-xl text-gray-800 flex-1"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

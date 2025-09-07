@@ -20,6 +20,9 @@ const Landing = () => {
       >
         an IRL Soccer Companion App
       </motion.p>
+
+      <br /> 
+      
       <motion.div
         className="flex gap-4"
         initial={{ opacity: 0 }}
