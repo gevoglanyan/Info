@@ -8,7 +8,19 @@ const Footer = () => {
         
          © 2025 Two Touch. All Rights Reserved.
 
-        <br /> <br />
+        <p className="mt-8">
+            Created by{" "}
+            <a
+              href="https://gevoglanyan.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-500 hover:underline"
+            >
+              Harutyun Gevoglanyan
+            </a>
+          </p>
+
+        <br />
 
     </footer>
   );
