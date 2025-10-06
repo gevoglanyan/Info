@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Landing = () => {
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-primary to-secondary text-center px-4">
+    <section className="h-screen flex flex-col justify-center items-center text-center px-4">
       <motion.h1
         className="text-5xl md:text-6xl font-heading mb-4 drop-shadow-lg"
         initial={{ opacity: 0, y: -50 }}

@@ -3,8 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  @apply font-body text-white;
-  background: linear-gradient(to bottom right, #6D28D9, #EC4899);
-}

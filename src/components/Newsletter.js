@@ -11,7 +11,7 @@ const Newsletter = () => {
 
   return (
     <motion.section
-      className="py-20 px-4 bg-gradient-to-br from-primary to-secondary text-white text-center"
+      className="py-20 px-4 text-white text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}

@@ -3,10 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#1F2937",    
-        secondary: "#EC4899",  
-        accent: "#FBBF24",     
-        textDark: "#1F2937",
+        primary: "black",    
+        secondary: "#EC4899", 
+        accent: "#FBBF24",    
+        textDark: "black",  
       },
       fontFamily: {
         heading: ["Poppins", "sans-serif"],

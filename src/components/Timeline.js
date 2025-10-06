@@ -1,7 +1,7 @@
 import React from "react";
 
 const timelineSteps = [
-  { year: "2025 Q1", event: "Alpha" },
+  { year: "2026 Q1", event: "Alpha" },
   { year: "2026 Q2", event: "Beta" },
   { year: "2026 Q3", event: "Offical Launch" },
 ];

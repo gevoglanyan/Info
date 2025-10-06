@@ -10,23 +10,54 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="font-body text-white bg-black">
+    <div className="font-body text-white bg-gradient-to-b from-primary via-secondary to-primary min-h-screen">
       <Landing />
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8 }}
+        className="py-20"
+      >
         <How />
       </motion.div>
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="py-20"
+      >
         <Features />
       </motion.div>
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8 }}
+        className="py-20"
+      >
         <Modes />
       </motion.div>
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="py-20"
+      >
         <Timeline />
       </motion.div>
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+
+      <motion.div 
+        initial={{ opacity: 0 }} 
+        whileInView={{ opacity: 1 }} 
+        transition={{ duration: 1 }}
+        className="py-20"
+      >
         <Newsletter />
       </motion.div>
+
       <Footer />
     </div>
   );
