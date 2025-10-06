@@ -4,8 +4,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "black",    
-        secondary: "#EC4899", 
-        accent: "#FBBF24",    
+        secondary: "cyan", 
+        accent: "white",    
         textDark: "black",  
       },
       fontFamily: {
