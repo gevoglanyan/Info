@@ -12,8 +12,9 @@ const Landing = () => {
       >
         Two Touch
       </motion.h1>
+
       <motion.p
-        className="text-xl md:text-2xl mb-8 font-body drop-shadow-md"
+        className="text-xl md:text-2xl mb-12 font-body drop-shadow-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
@@ -21,10 +22,8 @@ const Landing = () => {
         an IRL Soccer Companion App
       </motion.p>
 
-      <br /> 
-      
       <motion.div
-        className="flex gap-4"
+        className="flex gap-4 mb-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
@@ -36,6 +35,15 @@ const Landing = () => {
           Notify Me
         </button>
       </motion.div>
+
+      <motion.img
+        src="/Touch.png"
+        alt="Two Touch Logo"
+        className="w-[22rem] sm:w-[26rem] md:w-[30rem] drop-shadow-2xl"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.3, duration: 1 }}
+      />
     </section>
   );
 };
