@@ -1,9 +1,36 @@
 import React from "react";
 
 const steps = [
-  { title: "Launch the App", description: "Open the companion app and sync with your Two Touch game." },
-  { title: "Track Your Progress", description: "Monitor your IRL achievements and gameplay stats." },
-  { title: "Compete & Interact", description: "Challenge friends and share your scores in real-time." },
+  {
+    title: "Create Your Profile",
+    description:
+      "Set up your account with basic info and start building your Two Touch identity.",
+  },
+  {
+    title: "Log Your Matches",
+    description:
+      "Enter results from real-life games you play against friends or opponents found via the app.",
+  },
+  {
+    title: "Track Your Stats",
+    description:
+      "Monitor wins, losses, streaks, and Elo rating to see how your skill improves over time.",
+  },
+  {
+    title: "Find Opponents",
+    description:
+      "The app matches you with players at your skill level using Elo ratings for fair competition.",
+  },
+  {
+    title: "Compete & Challenge",
+    description:
+      "Challenge friends or new opponents, participate in weekly streaks or personal milestones.",
+  },
+  {
+    title: "Analyze & Improve",
+    description:
+      "Check your performance charts, leaderboards, and stats to identify strengths and areas to improve.",
+  },
 ];
 
 const How = () => {

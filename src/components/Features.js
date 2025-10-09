@@ -2,9 +2,42 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const features = [
-  { icon: "📊", title: "Track Stats", description: "Keep track of all your game stats in real-time." },
-  { icon: "🔔", title: "Notifications", description: "Get alerts for challenges and friend activities." },
-  { icon: "🏆", title: "Leaderboards", description: "See where you rank among your friends and the world." },
+  {
+    icon: "📊",
+    title: "Track Your Stats",
+    description:
+      "Log all your real-life matches, wins, losses, and track your Elo rating over time.",
+  },
+  {
+    icon: "⚖️",
+    title: "Elo-Based Matchmaking",
+    description:
+      "Find opponents at your skill level based on your Elo rating to ensure fair and competitive matches.",
+  },
+  {
+    icon: "🏆",
+    title: "Leaderboards",
+    description:
+      "See how you rank locally and globally among other players and track your progression.",
+  },
+  {
+    icon: "🎯",
+    title: "Challenges & Streaks",
+    description:
+      "Compete in daily or weekly challenges and aim for personal milestones and streaks.",
+  },
+  {
+    icon: "👥",
+    title: "Friends & Social",
+    description:
+      "Track your friends’ stats, challenge them to matches, and compare your progress.",
+  },
+  {
+    icon: "🔔",
+    title: "Notifications",
+    description:
+      "Get reminders about upcoming matches, challenges, or new opponents at your level.",
+  },
 ];
 
 const Features = () => {

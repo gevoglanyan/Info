@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Thank you! Updates will be sent to ${email}`);
@@ -11,6 +12,7 @@ const Newsletter = () => {
 
   return (
     <motion.section
+      id="newsletter" // <-- Add this ID so buttons can scroll here
       className="py-20 px-4 text-white text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -19,9 +21,10 @@ const Newsletter = () => {
       <h2 className="text-3xl font-heading mb-4">Stay Updated</h2>
       <p className="mb-6 font-body">Sign up to get notified when Two Touch launches.</p>
 
-      <br /> 
-      
-      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row justify-center gap-4 max-w-md mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col md:flex-row justify-center gap-4 max-w-md mx-auto"
+      >
         <input
           type="email"
           placeholder="Enter Your Email"
@@ -30,7 +33,10 @@ const Newsletter = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="bg-white text-primary font-bold px-6 py-3 rounded-xl hover:bg-gray-200 transition shadow-lg">
+        <button
+          type="submit"
+          className="bg-white text-primary font-bold px-6 py-3 rounded-xl hover:bg-gray-200 transition shadow-lg"
+        >
           Sign Up
         </button>
       </form>

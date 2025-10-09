@@ -7,6 +7,10 @@ import Modes from './components/Modes';
 import Timeline from './components/Timeline';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import About from './components/About';
+import Blog from './components/Blog';
+import FAQ from './components/FAQ';
+import Legal from './components/Legal';
 
 function App() {
   return (
@@ -47,6 +51,43 @@ function App() {
         className="py-20"
       >
         <Timeline />
+      </motion.div>
+
+      {/* New Sections */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="py-20"
+      >
+        <About />
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="py-20"
+      >
+        <Blog />
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="py-20"
+      >
+        <FAQ />
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="py-20"
+      >
+        <Legal />
       </motion.div>
 
       <motion.div 
