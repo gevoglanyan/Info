@@ -10,7 +10,7 @@ const Footer = () => {
           href="https://gevoglanyan.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent hover:underline"
+          className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
         >
           Harutyun Gevoglanyan
         </a>
