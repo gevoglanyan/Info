@@ -12,7 +12,7 @@ const Newsletter = () => {
 
   return (
     <motion.section
-      id="newsletter" // <-- Add this ID so buttons can scroll here
+      id="newsletter" 
       className="py-20 px-4 text-white text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -27,7 +27,7 @@ const Newsletter = () => {
       >
         <input
           type="email"
-          placeholder="Enter Your Email"
+          placeholder="info@touchtouchgame.com"
           className="px-4 py-3 rounded-xl text-gray-800 flex-1"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

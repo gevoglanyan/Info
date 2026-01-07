@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="py-12 text-white text-center">
-      <p>© 2025 Two Touch. All Rights Reserved.</p>
+      <p>© 2026 Two Touch. All Rights Reserved.</p>
       <p className="mt-6">
         Created by{" "}
         <a
