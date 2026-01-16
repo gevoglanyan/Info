@@ -6,7 +6,7 @@ const posts = [
     icon: "🧠",
     title: "Beta Feedback Now Open",
     description:
-      "We’re collecting player feedback to refine real-life match logging, improve Elo matchmaking, and ensure a seamless experience before our full launch.",
+      "We're collecting player feedback to refine real-life match logging, improve Elo matchmaking, and ensure a seamless experience before our full launch.",
   },
   {
     icon: "⚙️",
@@ -42,19 +42,19 @@ const posts = [
 
 const Blog = () => {
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-heading text-center mb-12 text-white">Updates & News</h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-center mb-8 sm:mb-10 md:mb-12 text-textLight font-bold px-4">Updates & News</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {posts.map((post, index) => (
           <motion.div
             key={index}
-            className="bg-white p-6 rounded-2xl shadow-xl text-textDark text-center"
-            whileHover={{ scale: 1.06, y: -5 }}
+            className="bg-cardBg p-5 sm:p-6 rounded-2xl shadow-card text-textDark text-center"
+            whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="text-5xl mb-4">{post.icon}</div>
-            <h3 className="text-2xl font-heading mb-2">{post.title}</h3>
-            <p className="font-body">{post.description}</p>
+            <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{post.icon}</div>
+            <h3 className="text-xl sm:text-2xl font-heading mb-2 font-semibold">{post.title}</h3>
+            <p className="font-body text-gray-600 text-sm sm:text-base">{post.description}</p>
           </motion.div>
         ))}
       </div>

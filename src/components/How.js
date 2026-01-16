@@ -35,17 +35,17 @@ const steps = [
 
 const How = () => {
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-heading text-center mb-12 text-white">How It Works</h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-center mb-8 sm:mb-10 md:mb-12 text-textLight font-bold px-4">How It Works</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {steps.map((step, index) => (
           <div
             key={index}
-            className="bg-white p-6 rounded-2xl shadow-xl text-textDark text-center hover:shadow-2xl transition transform hover:-translate-y-2"
+            className="bg-cardBg p-5 sm:p-6 rounded-2xl shadow-card text-textDark text-center hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-2"
           >
-            <div className="text-3xl mb-4 text-primary font-bold">{index + 1}</div>
-            <h3 className="text-2xl font-heading mb-2">{step.title}</h3>
-            <p className="font-body">{step.description}</p>
+            <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-accent font-bold">{index + 1}</div>
+            <h3 className="text-xl sm:text-2xl font-heading mb-2 font-semibold">{step.title}</h3>
+            <p className="font-body text-gray-600 text-sm sm:text-base">{step.description}</p>
           </div>
         ))}
       </div>

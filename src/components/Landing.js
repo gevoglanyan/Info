@@ -10,9 +10,9 @@ const Landing = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-12 md:pt-0">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-16 md:py-20 pt-24 sm:pt-28">
       <motion.h1
-        className="text-5xl md:text-6xl font-heading mb-4 drop-shadow-lg"
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading mb-4 md:mb-6 drop-shadow-lg text-textLight font-bold"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -21,7 +21,7 @@ const Landing = () => {
       </motion.h1>
 
       <motion.p
-        className="text-xl md:text-2xl mb-12 font-body drop-shadow-md"
+        className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 font-body drop-shadow-md text-textLight max-w-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
@@ -30,20 +30,20 @@ const Landing = () => {
       </motion.p>
 
       <motion.div
-        className="flex flex-col sm:flex-row gap-4 mb-12"
+        className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 md:mb-12 w-full sm:w-auto px-4 sm:px-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
         <button
           onClick={() => scrollToSection('newsletter')}
-          className="bg-white text-primary font-bold px-6 py-3 rounded-xl hover:bg-gray-200 transition shadow-lg"
+          className="bg-accent text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-accentHover transition-all shadow-lg hover:shadow-glow transform hover:scale-105 duration-300 text-sm sm:text-base w-full sm:w-auto"
         >
           Sign Up for Updates
         </button>
         <button
           onClick={() => scrollToSection('newsletter')} 
-          className="border-2 border-white px-6 py-3 rounded-xl hover:bg-white hover:text-primary transition shadow-lg"
+          className="border-2 border-accent text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-accent hover:text-white transition-all shadow-lg transform hover:scale-105 duration-300 text-sm sm:text-base w-full sm:w-auto"
         >
           Notify Me
         </button>
@@ -52,17 +52,17 @@ const Landing = () => {
       <motion.img
         src="/Touch.png"
         alt="Two Touch Logo"
-        className="w-[18rem] sm:w-[22rem] md:w-[30rem] mb-12 drop-shadow-2xl"
+        className="w-64 sm:w-80 md:w-96 lg:w-[30rem] mb-8 md:mb-12 drop-shadow-2xl"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 1 }}
       />
 
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-textLight mb-4 md:mb-6 font-heading">
         Follow Us
       </h2>
 
-      <div className="social-icons flex justify-center space-x-8">
+      <div className="social-icons flex justify-center space-x-6 sm:space-x-8">
         <a
           href="https://www.instagram.com/twotouchgame"
           target="_blank"
@@ -71,7 +71,7 @@ const Landing = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10 text-white hover:text-cyan-400 transition"
+            className="h-8 w-8 sm:h-10 sm:w-10 text-accent hover:text-accentHover transition"
             viewBox="0 0 496 512"
             fill="currentColor"
           >

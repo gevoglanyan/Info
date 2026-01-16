@@ -30,7 +30,7 @@ const features = [
     icon: "👥",
     title: "Friends & Social",
     description:
-      "Track your friends’ stats, challenge them to matches, and compare your progress.",
+      "Track your friends' stats, challenge them to matches, and compare your progress.",
   },
   {
     icon: "🔔",
@@ -42,19 +42,19 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-heading text-center mb-12 text-white">App Features</h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-center mb-8 sm:mb-10 md:mb-12 text-textLight font-bold px-4">App Features</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="bg-white p-6 rounded-2xl shadow-xl text-textDark text-center"
-            whileHover={{ scale: 1.06, y: -5 }}
+            className="bg-cardBg p-5 sm:p-6 rounded-2xl shadow-card text-textDark text-center"
+            whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="text-5xl mb-4">{feature.icon}</div>
-            <h3 className="text-2xl font-heading mb-2">{feature.title}</h3>
-            <p className="font-body">{feature.description}</p>
+            <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{feature.icon}</div>
+            <h3 className="text-xl sm:text-2xl font-heading mb-2 font-semibold">{feature.title}</h3>
+            <p className="font-body text-gray-600 text-sm sm:text-base">{feature.description}</p>
           </motion.div>
         ))}
       </div>
