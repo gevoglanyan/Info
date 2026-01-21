@@ -24,6 +24,7 @@ const Header = () => {
   };
 
   const navItems = [
+    { label: 'Home', id: 'top' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'Features', id: 'features' },
     { label: 'Game Modes', id: 'game-modes' },
@@ -65,16 +66,7 @@ const Header = () => {
               </div>
             </button>
 
-            <div
-              onClick={() => scrollToSection('top')}
-              className="absolute left-1/2 transform -translate-x-1/2 lg:relative lg:left-0 lg:transform-none cursor-pointer"
-            >
-              <h1 className="text-xl sm:text-2xl font-heading font-bold text-textLight hover:text-accent transition-colors">
-                Two Touch
-              </h1>
-            </div>
-
-            <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+            <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -86,7 +78,7 @@ const Header = () => {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 ml-auto">
               <button
                 onClick={() => scrollToSection('newsletter')}
                 className="hidden sm:block bg-accent text-white font-bold px-4 sm:px-6 py-2 rounded-lg hover:bg-accentHover transition-all shadow-lg hover:shadow-glow text-sm"
@@ -139,7 +131,7 @@ const Header = () => {
               <div className="p-6 border-b border-gray-700">
                 <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-heading font-bold text-textLight">
-                    Menu
+                    Two Touch
                   </h2>
                   <button
                     onClick={closeMenu}
@@ -178,6 +170,8 @@ const Header = () => {
                   </motion.button>
                 ))}
 
+                <br />
+
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -204,7 +198,7 @@ const Header = () => {
                   >
                     <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.8 0 184.8 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.8-1.7 67.6-9.9 93.9-36.1s34.4-58 36.2-93.9c2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
                   </svg>
-                  <span className="font-body">Follow us on Instagram</span>
+                  <span className="font-body">Follow us</span>
                 </a>
               </div>
             </motion.div>
