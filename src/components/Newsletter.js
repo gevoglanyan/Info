@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState(""); // 'success', 'error', or ''
+  const [status, setStatus] = useState(""); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const Newsletter = () => {
       if (response.ok) {
         setStatus('success');
         setEmail("");
-        setTimeout(() => setStatus(''), 5000); // Clear message after 5 seconds
+        setTimeout(() => setStatus(''), 5000); 
       } else {
         setStatus('error');
       }
@@ -66,7 +66,6 @@ const Newsletter = () => {
         </button>
       </form>
 
-      {/* Status Messages */}
       {status === 'success' && (
         <motion.p
           initial={{ opacity: 0, y: 10 }}
