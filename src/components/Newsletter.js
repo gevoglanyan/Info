@@ -50,7 +50,7 @@ const Newsletter = () => {
       >
         <input
           type="email"
-          placeholder="your.email@example.com"
+          placeholder="email@example.com"
           className="px-4 py-3 rounded-xl text-textDark flex-1 focus:outline-none focus:ring-2 focus:ring-accent text-sm sm:text-base"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
