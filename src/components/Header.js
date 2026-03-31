@@ -1,210 +1,178 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const navItems = [
+  { label: 'How It Works', id: 'how' },
+  { label: 'Features',     id: 'features' },
+  { label: 'Modes',        id: 'modes' },
+  { label: 'About',        id: 'about' },
+  { label: 'FAQ',          id: 'faq' },
+];
+
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
+  const [menuOpen,    setMenuOpen]    = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
-  const scrollToSection = (id) => {
-    closeMenu();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const scrollTo = (id) => {
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  const navItems = [
-    { label: 'Home', id: 'top' },
-    { label: 'How It Works', id: 'how-it-works' },
-    { label: 'Features', id: 'features' },
-    { label: 'Game Modes', id: 'game-modes' },
-    { label: 'About', id: 'about' },
-    { label: 'FAQ', id: 'faq' },
-  ];
 
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
+        initial={{ y: -80 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-primary/95 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
-        }`}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '18px 32px',
+          background: scrolled ? 'rgba(11,28,12,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+          transition: 'background 0.3s, border-color 0.3s',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+        <a href="#top" style={{ fontFamily: 'var(--display)', fontSize: 26, letterSpacing: '0.04em', color: 'var(--white)', textDecoration: 'none' }}>
+          TWO <span style={{ color: 'var(--lime)' }}>TOUCH</span>
+        </a>
+
+        <nav style={{ display: 'flex', gap: 28, listStyle: 'none', alignItems: 'center' }} className="tt-desktop-nav">
+          {navItems.map(item => (
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors"
-              aria-label="Toggle menu"
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                color: 'rgba(244,239,230,0.5)', fontSize: 14, fontFamily: 'var(--body)',
+                letterSpacing: '0.02em', transition: 'color 0.2s', padding: '4px 0',
+              }}
+              onMouseEnter={e => e.target.style.color = 'var(--white)'}
+              onMouseLeave={e => e.target.style.color = 'rgba(244,239,230,0.5)'}
             >
-              <div className="w-6 h-5 flex flex-col justify-between">
-                <motion.span
-                  animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-textLight rounded-full transition-all"
-                />
-                <motion.span
-                  animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className="w-full h-0.5 bg-textLight rounded-full transition-all"
-                />
-                <motion.span
-                  animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-textLight rounded-full transition-all"
-                />
-              </div>
+              {item.label}
             </button>
+          ))}
+        </nav>
 
-            <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-textLight hover:text-accent transition-colors font-body font-medium text-sm"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button
+            onClick={() => scrollTo('newsletter')}
+            className="tt-desktop-nav"
+            style={{
+              background: 'var(--lime)', color: 'var(--pitch)', fontWeight: 600,
+              fontSize: 13, padding: '9px 22px', borderRadius: 8, border: 'none',
+              cursor: 'pointer', letterSpacing: '0.03em', whiteSpace: 'nowrap',
+              transition: 'background 0.2s, transform 0.15s',
+            }}
+            onMouseEnter={e => { e.target.style.background = '#8fff60'; e.target.style.transform = 'translateY(-1px)'; }}
+            onMouseLeave={e => { e.target.style.background = 'var(--lime)'; e.target.style.transform = 'none'; }}
+          >
+            Join Waitlist
+          </button>
 
-            <div className="flex items-center gap-3 sm:gap-4 ml-auto">
-              <button
-                onClick={() => scrollToSection('newsletter')}
-                className="hidden sm:block bg-accent text-white font-bold px-4 sm:px-6 py-2 rounded-lg hover:bg-accentHover transition-all shadow-lg hover:shadow-glow text-sm"
-              >
-                Sign Up
-              </button>
-
-              <button
-                className="p-2 rounded-lg hover:bg-accent/10 transition-colors"
-                aria-label="Profile"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-textLight"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            className="tt-mobile-nav"
+            aria-label="Toggle menu"
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              display: 'flex', flexDirection: 'column', gap: 5, padding: 4,
+            }}
+          >
+            {[0, 1, 2].map(i => (
+              <motion.span
+                key={i}
+                animate={
+                  menuOpen
+                    ? i === 0 ? { rotate: 45,  y: 6.5, opacity: 1 }
+                    : i === 1 ? { opacity: 0 }
+                    :           { rotate: -45, y: -6.5, opacity: 1 }
+                    : { rotate: 0, y: 0, opacity: 1 }
+                }
+                style={{
+                  display: 'block', width: 22, height: 1.5,
+                  background: 'var(--white)', borderRadius: 2,
+                }}
+              />
+            ))}
+          </button>
         </div>
       </motion.header>
 
       <AnimatePresence>
-        {isMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
-            />
-
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 left-0 bottom-0 w-64 sm:w-80 bg-secondary shadow-2xl z-50 lg:hidden"
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 499,
+              background: 'rgba(11,28,12,0.97)',
+              backdropFilter: 'blur(24px)',
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', justifyContent: 'center', gap: 32,
+            }}
+          >
+            {navItems.map((item, i) => (
+              <motion.button
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.07 }}
+                onClick={() => scrollTo(item.id)}
+                style={{
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontFamily: 'var(--display)', fontSize: 'clamp(36px, 8vw, 52px)',
+                  letterSpacing: '0.04em', color: 'var(--white)',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => e.target.style.color = 'var(--lime)'}
+                onMouseLeave={e => e.target.style.color = 'var(--white)'}
+              >
+                {item.label.toUpperCase()}
+              </motion.button>
+            ))}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.07 }}
+              onClick={() => scrollTo('newsletter')}
+              style={{
+                marginTop: 8, background: 'var(--lime)', color: 'var(--pitch)',
+                fontWeight: 600, fontSize: 15, padding: '14px 44px',
+                borderRadius: 8, border: 'none', cursor: 'pointer',
+              }}
             >
-              <div className="p-6 border-b border-gray-700">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-heading font-bold text-textLight">
-                    Two Touch
-                  </h2>
-                  <button
-                    onClick={closeMenu}
-                    className="p-2 rounded-lg hover:bg-accent/10 transition-colors"
-                    aria-label="Close menu"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-textLight"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              <nav className="p-6 space-y-4">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left text-textLight hover:text-accent transition-colors font-body font-medium text-lg py-2 hover:pl-2 transition-all"
-                  >
-                    {item.label}
-                  </motion.button>
-                ))}
-
-                <br />
-
-                <motion.button
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                  onClick={() => scrollToSection('newsletter')}
-                  className="w-full mt-6 bg-accent text-white font-bold px-6 py-3 rounded-lg hover:bg-accentHover transition-all shadow-lg"
-                >
-                  Sign Up for Updates
-                </motion.button>
-              </nav>
-
-              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-700">
-                <a
-                  href="https://www.instagram.com/twotouchgame"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-textLight hover:text-accent transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    viewBox="0 0 496 512"
-                    fill="currentColor"
-                  >
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.8 0 184.8 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.8-1.7 67.6-9.9 93.9-36.1s34.4-58 36.2-93.9c2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                  </svg>
-                  <span className="font-body">Follow us</span>
-                </a>
-              </div>
-            </motion.div>
-          </>
+              Join Waitlist
+            </motion.button>
+          </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        .tt-desktop-nav { display: flex !important; }
+        .tt-mobile-nav  { display: none  !important; }
+        @media (max-width: 860px) {
+          .tt-desktop-nav { display: none  !important; }
+          .tt-mobile-nav  { display: flex !important; }
+        }
+      `}</style>
     </>
   );
 };

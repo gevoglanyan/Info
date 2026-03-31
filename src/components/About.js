@@ -1,65 +1,78 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const aboutItems = [
-  {
-    icon: "⚽",
-    title: "Our Story",
-    description:
-      "Two Touch started from pickup games among friends who wanted an easy way to track wins, losses, and match stats without spreadsheets — turning real-life soccer into a competitive tracking experience.",
-  },
-  {
-    icon: "🌍",
-    title: "Our Mission",
-    description:
-      "We aim to connect soccer players worldwide through real-life competition and a digital platform that tracks performance, skill progression, and fair matchmaking.",
-  },
-  {
-    icon: "🎯",
-    title: "Our Vision",
-    description:
-      "To create a global community of players who can compete fairly, track their skill improvement, and enjoy real-world soccer like never before.",
-  },
-  {
-    icon: "👥",
-    title: "The Team",
-    description:
-      "Created by Harry Gevoglanyan — Developer & Designer — with a focus on combining real-life sports with smart digital tracking and competitive matchmaking.",
-  },
-  {
-    icon: "💡",
-    title: "Our Values",
-    description:
-      "Fair play, progress, community, and accessibility guide everything we do — from the app's design to the way matches are tracked and ranked.",
-  },
-  {
-    icon: "📈",
-    title: "How It Works",
-    description:
-      "Players log their real-life matches, the app calculates Elo ratings, and matchmaking ensures fair competition while tracking wins, losses, and streaks.",
-  },
+const items = [
+  { icon: '⚽', title: 'OUR STORY',    desc: 'Started from pickup games among friends who wanted an easy way to track wins and losses without spreadsheets — turning real-life soccer into a competitive tracking experience.' },
+  { icon: '🌍', title: 'OUR MISSION',  desc: 'Connect soccer players worldwide through real competition and a platform that tracks performance, skill progression, and fair matchmaking at every level.' },
+  { icon: '🎯', title: 'OUR VISION',   desc: 'A global community where players compete fairly, track their improvement, and experience real-world soccer like never before — regardless of where they play.' },
+  { icon: '👨‍💻', title: 'THE TEAM',    desc: 'Created by Harry Gevoglanyan — Developer & Designer — combining real-life sports with smart digital tracking and competitive matchmaking since day one.' },
+  { icon: '💡', title: 'OUR VALUES',   desc: 'Fair play, progress, community, and accessibility guide everything — from the app\'s design to how matches are tracked, ranked, and rewarded.' },
+  { icon: '📈', title: 'THE SYSTEM',   desc: 'Players log real-life matches, the app calculates Elo ratings, and matchmaking ensures every competition is balanced, fair, and meaningful.' },
 ];
 
-const About = () => {
-  return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-center mb-8 sm:mb-10 md:mb-12 text-textLight font-bold px-4">About Two Touch</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {aboutItems.map((item, index) => (
-          <motion.div
-            key={index}
-            className="bg-cardBg p-5 sm:p-6 rounded-2xl shadow-card text-textDark text-center"
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{item.icon}</div>
-            <h3 className="text-xl sm:text-2xl font-heading mb-2 font-semibold">{item.title}</h3>
-            <p className="font-body text-gray-600 text-sm sm:text-base">{item.description}</p>
-          </motion.div>
-        ))}
+const About = () => (
+  <section id="about" style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(70px,10vw,110px) 24px' }}>
+
+    <motion.div
+      initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }} transition={{ duration: 0.6 }}
+      style={{ textAlign: 'center', marginBottom: 'clamp(40px,6vw,72px)' }}
+    >
+      <div style={{
+        fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.18em',
+        textTransform: 'uppercase', color: 'var(--lime)',
+        display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center', marginBottom: 16,
+      }}>
+        <span style={{ width: 24, height: 1, background: 'var(--lime)', opacity: 0.5, display: 'block' }} />
+        The Story
+        <span style={{ width: 24, height: 1, background: 'var(--lime)', opacity: 0.5, display: 'block' }} />
       </div>
-    </section>
-  );
-};
+      <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(40px,7vw,72px)', letterSpacing: '0.02em', lineHeight: 0.95, marginBottom: 16 }}>
+        ABOUT TWO TOUCH
+      </h2>
+      <p style={{ color: 'rgba(244,239,230,0.5)', fontSize: 'clamp(14px,2vw,17px)', fontWeight: 300, maxWidth: 500, margin: '0 auto' }}>
+        Built by players, for players. Two Touch started from a problem every pickup footballer knows.
+      </p>
+    </motion.div>
+
+    <div className="tt-about-grid">
+      {items.map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+          whileHover={{ y: -4, borderColor: 'rgba(109,255,60,0.28)' }}
+          style={{
+            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: 12, padding: 'clamp(24px,3vw,32px)',
+            transition: 'background 0.25s, border-color 0.25s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
+          onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}
+        >
+          <span style={{ fontSize: 32, display: 'block', marginBottom: 16 }}>{item.icon}</span>
+          <div style={{ fontFamily: 'var(--display)', fontSize: 'clamp(17px,2.2vw,21px)', letterSpacing: '0.04em', marginBottom: 10 }}>
+            {item.title}
+          </div>
+          <p style={{ color: 'rgba(244,239,230,0.5)', fontSize: 14, fontWeight: 300, lineHeight: 1.7, margin: 0 }}>
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+
+    <style>{`
+      .tt-about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 860px) { .tt-about-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 520px) { .tt-about-grid { grid-template-columns: 1fr; } }
+    `}</style>
+  </section>
+);
 
 export default About;
