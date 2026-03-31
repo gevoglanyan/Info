@@ -83,7 +83,7 @@ const Landing = () => {
           margin: '8px 0 32px',
         }}
       >
-        PLAY. TRACK. DOMINATE.
+        TRACK. CHALLENGE. DOMINATE.
       </motion.p>
 
       <motion.p
