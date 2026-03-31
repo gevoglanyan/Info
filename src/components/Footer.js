@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
 
       <p style={{ color: 'rgba(244,239,230,0.25)', fontSize: 12, fontFamily: 'var(--mono)', letterSpacing: '0.04em' }}>
-        © 2026 Two Touch · All Rights Reserved · Created by{' '}
+        © 2026 Two Touch · All Rights Reserved <br /> <br />Created by{' '}
         <a
           href="https://gevoglanyan.com"
           target="_blank" rel="noopener noreferrer"
